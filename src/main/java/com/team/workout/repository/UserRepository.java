@@ -1,4 +1,11 @@
 package com.team.workout.repository;
 
-public interface UserRepository {
+
+import com.team.workout.domain.User;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+
+public interface UserRepository extends MongoRepository<User, String> {
+    User findByName(String name);
 }

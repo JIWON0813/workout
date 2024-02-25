@@ -1,0 +1,11 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://admin:1331@cluster0.4uiw1.mongodb.net/workout?retryWrites=true&w=majority&appName=Cluster0
+  graphql:
+    servlet:
+      mapping: /graphql
+    graphiql:
+      enabled: true
+    printer:
+      enabled: true # show-sql와 같이 graphql 콘솔에 쿼리 출력

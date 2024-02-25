@@ -1,15 +1,26 @@
 package com.team.workout.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@Entity
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Document(collection = "user")
 public class User {
 
     @Id
-    private Long id;
+    private String id;
 
     private String name;
 
     private String email;
+
 }
