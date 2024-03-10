@@ -11,10 +11,17 @@ type Query{
 type Mutation{
     saveUser(user : UserInput) : User
     quitUser(id : String) : Boolean
+    sendMessageToken(message : MessageRequest) : Boolean
 }
 
 input UserInput {
     id : String
     name : String
+}
+
+input MessageRequest {
+    title : String
+    body : String
+    targetToken : String
 }
 
