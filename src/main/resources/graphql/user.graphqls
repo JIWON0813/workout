@@ -1,0 +1,15 @@
+type User{
+    id : String!
+    token : String
+    name : String
+    email : String
+}
+
+input UserInput {
+    id : String!
+    token : String
+    name : String
+    email : String
+}
+
+

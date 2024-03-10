@@ -2,13 +2,15 @@ package com.team.workout.dto;
 
 import lombok.*;
 
+@AllArgsConstructor
 @Data
 public class UserInput {
 
-    private String id;
+    @NonNull private String id;
+
+    private String token;
 
     private String name;
 
     private String email;
-
 }

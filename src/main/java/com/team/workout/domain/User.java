@@ -19,6 +19,8 @@ public class User {
     @Id
     private String id;
 
+    private String token;
+
     private String name;
 
     private String email;

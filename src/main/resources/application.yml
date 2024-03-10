@@ -9,3 +9,8 @@ spring:
       enabled: true
     printer:
       enabled: true # show-sql와 같이 graphql 콘솔에 쿼리 출력
+
+fcm:
+  service-account-file: key # 비밀키 경로 ( 필수 )
+  topic-name: temp # topic 이름 ( topic 통신시에 필요함 )
+  project-id: temp # firebase 프로젝트 아이디 ( 필수 )

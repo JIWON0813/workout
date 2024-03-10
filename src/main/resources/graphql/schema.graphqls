@@ -1,27 +1,10 @@
-type User{
-    id : String!
-    name : String
-}
-
 type Query{
     users : [User]
     getUser(name : String) : User
 }
 
 type Mutation{
-    saveUser(user : UserInput) : User
+    saveUser(user : UserInput) : Boolean
     quitUser(id : String) : Boolean
     sendMessageToken(message : MessageRequest) : Boolean
 }
-
-input UserInput {
-    id : String
-    name : String
-}
-
-input MessageRequest {
-    title : String
-    body : String
-    targetToken : String
-}
-

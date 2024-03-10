@@ -1,0 +1,6 @@
+input MessageRequest {
+    title : String
+    body : String
+    targetToken : String
+}
+
