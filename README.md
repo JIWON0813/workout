@@ -13,8 +13,15 @@
 백엔드 1명
 
 ## DB (Mongo DB)
-네이밍
-https://typeof-undefined.tistory.com/11
+네이밍  
+https://typeof-undefined.tistory.com/11  
+  
+Embedding? vs Referencing?  
+  
+현재 상황은 Embedding이 맞는데 document 사이즈는 16MB.  
+연도는 계속해서 붙을텐데 먼 미래이지만 사이즈는 무조건 한계치에 달할 수 있음.  
+그렇다고 연도별로 컬렉션을 나눈다면? - 유저가 많아질경우 역시 사이즈가 16MB에 달할 수 있음  
+아직 고민중  
 
 # 기능 정리
 ### 팀
