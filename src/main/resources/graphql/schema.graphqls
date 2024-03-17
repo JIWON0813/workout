@@ -4,7 +4,8 @@ type Query{
 }
 
 type Mutation{
-    saveUser(user : UserInput) : Boolean
+    createUser(user : UserInput) : Boolean
     quitUser(id : String) : Boolean
-    sendMessageToken(message : MessageRequest) : Boolean
+    sendMessageToken(message : FcmMessageInput) : Boolean
+    createRecord(record : RecordInput) : Boolean
 }

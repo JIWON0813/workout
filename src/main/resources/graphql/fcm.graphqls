@@ -1,4 +1,4 @@
-input MessageRequest {
+input FcmMessageInput {
     title : String
     body : String
     targetToken : String

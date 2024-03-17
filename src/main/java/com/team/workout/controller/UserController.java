@@ -2,6 +2,7 @@ package com.team.workout.controller;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.team.workout.domain.User;
+import com.team.workout.dto.RecordInput;
 import com.team.workout.dto.UserInput;
 import com.team.workout.repository.UserRepository;
 import com.team.workout.service.UserService;
@@ -33,10 +34,14 @@ public class UserController implements GraphQLResolver {
         return result;
     }
 
+    @MutationMapping
+    public void createUser(@Argument(name = "user") UserInput user){
+        userService.createUser(user);
+    }
 
     @MutationMapping
-    public void saveUser(@Argument(name = "user") UserInput user){
-        userService.saveUser(user);
+    public void createRecord(@Argument(name = "record") RecordInput record){
+        userService.createRecord(record);
     }
 
     @MutationMapping

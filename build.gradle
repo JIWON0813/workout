@@ -27,8 +27,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 
     implementation 'com.graphql-java:graphql-java-tools:5.2.4'
+    implementation 'com.graphql-java:graphql-java-extended-scalars:21.0'
     implementation 'org.springframework.boot:spring-boot-starter-graphql'
     implementation 'com.graphql-java-kickstart:playground-spring-boot-starter:5.10.0'
+    implementation 'org.hibernate.validator:hibernate-validator:6.1.2.Final'
+    implementation 'org.glassfish:jakarta.el:3.0.3'
 
     implementation 'com.google.firebase:firebase-admin:9.1.1'
     implementation 'com.squareup.okhttp3:okhttp:4.11.0'

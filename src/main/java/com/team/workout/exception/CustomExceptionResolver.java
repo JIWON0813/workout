@@ -16,7 +16,7 @@ public class CustomExceptionResolver extends DataFetcherExceptionResolverAdapter
         if (ex instanceof FirebaseMessagingException) {
             return GraphqlErrorBuilder.newError()
                     .errorType(ErrorType.BAD_REQUEST)
-                    .message("응~ 승현이 니 잘못~ : " + ex.getMessage())
+                    .message("파라미터 에러(입력 값 확인 필요) : " + ex.getMessage())
                     .path(env.getExecutionStepInfo().getPath())
                     .location(env.getField().getSourceLocation())
                     .build();
@@ -24,7 +24,7 @@ public class CustomExceptionResolver extends DataFetcherExceptionResolverAdapter
         else {
             return GraphqlErrorBuilder.newError()
                     .errorType(ErrorType.INTERNAL_ERROR)
-                    .message("하 인생... : " + ex.getMessage())
+                    .message("서버 에러 : " + ex.getMessage())
                     .path(env.getExecutionStepInfo().getPath())
                     .location(env.getField().getSourceLocation())
                     .build();

@@ -1,16 +1,18 @@
 package com.team.workout.service;
 
-import com.coxautodev.graphql.tools.GraphQLResolver;
+import com.team.workout.domain.Character;
+import com.team.workout.domain.Month;
 import com.team.workout.domain.User;
+import com.team.workout.domain.Year;
+import com.team.workout.dto.RecordInput;
 import com.team.workout.dto.UserInput;
 import com.team.workout.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.graphql.data.method.annotation.Argument;
-import org.springframework.graphql.data.method.annotation.MutationMapping;
-import org.springframework.graphql.data.method.annotation.QueryMapping;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,20 +26,32 @@ public class UserService{
         return result;
     }
 
-    public User getUser(@Argument(name="name") String name){
+    public User getUser(String name){
         var result = userRepository.findByName(name);
         return result;
     }
 
-    public void saveUser(@Argument(name = "user") UserInput user){
-        if(user.getId() == null){
-            throw  new IllegalArgumentException("잘못된 ID가 들어왔습니다.");
-        }
-
-        var result = userRepository.save(new User(user.getId(), user.getToken(), user.getName(), user.getEmail()));
+    public void createUser(UserInput user){
+         userRepository.save(new User(user.getId(), user.getToken(), user.getName(), user.getEmail(), false, new Character(1,0.0), new ArrayList<>()));
     }
 
-    public boolean quitUser(@Argument(name = "id") String id){
+    public void createRecord(RecordInput record){
+        var user = userRepository.findById(record.getId()).orElseThrow();
+
+        var years = user.getYears();
+
+        user.addRecord(record);
+
+        userRepository.save(user);
+    }
+
+    public boolean quitUser( String id){
+        var user = userRepository.findById(id).orElseThrow();
+
+        user.quit();
+
+        userRepository.save(user);
+
         return true;
     }
 }

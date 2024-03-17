@@ -5,7 +5,7 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class MessageRequest {
+public class FcmMessageInput {
     private String title;
     private String body;
     private String targetToken;

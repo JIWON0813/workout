@@ -1,4 +1,4 @@
-package com.team.workout.service;
+package com.team.workout.repository;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.team.workout.repository.UserRepository;

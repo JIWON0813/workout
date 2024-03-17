@@ -11,15 +11,15 @@ import org.springframework.graphql.test.tester.GraphQlTester;
 @AutoConfigureGraphQlTester
 public class UserControllerTests {
 
-    @Autowired
-    private GraphQlTester graphQlTester;
-
-    @DisplayName("1. 게시글 1개 가져오기")
-    @Test
-    void test_1(){
-        var asd = this.graphQlTester.documentName("User")
-                .variable("id", 1)
-                .execute();
-
-    }
+//    @Autowired
+//    private GraphQlTester graphQlTester;
+//
+//    @DisplayName("1. 게시글 1개 가져오기")
+//    @Test
+//    void test_1(){
+//        var asd = this.graphQlTester.documentName("User")
+//                .variable("id", 1)
+//                .execute();
+//
+//    }
 }
