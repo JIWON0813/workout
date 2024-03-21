@@ -1,11 +1,19 @@
+scalar DateTime
+
 type Query{
     users : [User]
-    getUser(name : String) : User
+    getUser(id : String) : User
+    getRecord(id : RecordInput) : TimeStampResponse
+    getSeedStandard : Int
 }
 
 type Mutation{
     createUser(user : UserInput) : Boolean
     quitUser(id : String) : Boolean
+
     sendMessageToken(message : FcmMessageInput) : Boolean
-    createRecord(record : RecordInput) : Boolean
+
+    addRecord(record : RecordInput) : Int
+    updateRecord(record : RecordInput) : Boolean
+    finishRecord(record : RecordInput) : Boolean
 }

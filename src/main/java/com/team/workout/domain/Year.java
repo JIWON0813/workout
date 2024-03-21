@@ -1,33 +1,40 @@
 package com.team.workout.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import com.team.workout.dto.request.RecordInput;
+import com.team.workout.dto.response.TimeStampResponse;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class Year {
     private int value;
-    private List<Month> months;
+    private HashMap<Integer, Month> months;
 
     public Year(int year){
         this.value = year;
-        this.months = new ArrayList<>();
+        this.months = new HashMap<>();
     }
 
-    public void addMonth(Month month){
-        this.months.add(month);
+    public int addTimeStamp(RecordInput record){
+        months.putIfAbsent(record.getRecordMonth(), new Month(record.getRecordMonth()));
+
+        var month = months.get(record.getRecordMonth());
+
+        return month.addTimeStamp(record);
     }
 
-    public Month getMonth(Month month){
-        this.months.stream().map(data -> data.getValue() == month.getValue());
-        return null;
+    public void updateTimeStamp(RecordInput record){
+        var month = months.get(record.getRecordMonth());
+
+        month.updateTimeStamp(record);
+    }
+
+    public TimeStampResponse getTimeStamp(RecordInput record) {
+        var month = months.get(record.getRecordMonth());
+
+        return month.getTimeStamp(record);
     }
 }

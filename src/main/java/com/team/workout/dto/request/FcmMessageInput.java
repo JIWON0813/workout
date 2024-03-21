@@ -1,4 +1,4 @@
-package com.team.workout.dto;
+package com.team.workout.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

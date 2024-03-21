@@ -1,17 +1,17 @@
 package com.team.workout.user;
 
 import com.team.workout.domain.User;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
 
 @SpringBootTest
-public class UserTests {
+public class RecordTests {
 
     @Test
+    @DisplayName("일시정지로 들어왔을 때")
     void test01(){
         User user = new User();
         LocalDateTime startTime = LocalDateTime.of(2024,3,8,14,30,23);
@@ -21,18 +21,18 @@ public class UserTests {
 
 //        user.addRecord(recordInput);
 
-        //assertThat().isEqualTo("");
     }
 
     @Test
-    void functionTest(){
-        HashMap<Integer, HashMap<Integer, String>> map = new HashMap<>();
+    @DisplayName("운동 끝으로 들어왔을 때")
+    void test02(){
+        User user = new User();
+        LocalDateTime startTime = LocalDateTime.of(2024,3,8,14,30,23);
+        LocalDateTime endTime = LocalDateTime.of(2024,3,8,14,55,46);
 
-        map.putIfAbsent(1, new HashMap<>());
+        //RecordInput recordInput = new RecordInput(1234, startTime, endTime);
 
-        var data = map.get(1);
-        data.put(100,"hello");
+//        user.addRecord(recordInput);
 
-        assertThat(map.get(1).get(100)).isEqualTo("hello");
     }
 }

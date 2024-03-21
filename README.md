@@ -42,3 +42,16 @@ Embedding? vs Referencing?
     - [service](src/main/java/com/warmingup/mini/service/WorkerService.java)
     - [domain](src/main/java/com/warmingup/mini/domain/Worker.java)
 
+
+
+## 생각 정리. 이력
+### 03.21  
+단순 개발 진행 어려움 느껴 BDD방식으로 진행  
+테스트코드가 익숙하지 않지만 확실히 필요성을 느끼게 됌
+![img.png](image/img.png)
+
+하 데이터모델링이 어렵구나...
+맨 처음에 List로 했는데 Map이 나아보여 Map으로 변경
+nosql을 처음 써보다 보니 뭔가 복잡하게 됐다
+rdb면 그냥 조인해서 끝내면 될거같은데
+앞으로는 좀 더 정교하게 짤 수 있도록 해야겠다

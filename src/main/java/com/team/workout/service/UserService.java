@@ -1,18 +1,13 @@
 package com.team.workout.service;
 
 import com.team.workout.domain.Character;
-import com.team.workout.domain.Month;
 import com.team.workout.domain.User;
-import com.team.workout.domain.Year;
-import com.team.workout.dto.RecordInput;
-import com.team.workout.dto.UserInput;
+import com.team.workout.domain.UserRecord;
+import com.team.workout.dto.request.UserInput;
 import com.team.workout.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,23 +21,22 @@ public class UserService{
         return result;
     }
 
-    public User getUser(String name){
-        var result = userRepository.findByName(name);
+    public User getUser(String id){
+        var result = userRepository.findById(id).orElse(null);
         return result;
     }
 
-    public void createUser(UserInput user){
-         userRepository.save(new User(user.getId(), user.getToken(), user.getName(), user.getEmail(), false, new Character(1,0.0), new ArrayList<>()));
-    }
+    public void createUser(UserInput userInput){
+        var user = User.builder()
+                        .id(userInput.getId())
+                        .token(userInput.getToken())
+                        .name(userInput.getName())
+                        .email(userInput.getEmail())
+                        .character(new Character(userInput.getCharacterName()))
+                        .userRecord(new UserRecord())
+                        .build();
 
-    public void createRecord(RecordInput record){
-        var user = userRepository.findById(record.getId()).orElseThrow();
-
-        var years = user.getYears();
-
-        user.addRecord(record);
-
-        userRepository.save(user);
+         userRepository.save(user);
     }
 
     public boolean quitUser( String id){

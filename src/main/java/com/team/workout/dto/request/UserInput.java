@@ -1,4 +1,4 @@
-package com.team.workout.dto;
+package com.team.workout.dto.request;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -14,6 +14,8 @@ public class UserInput {
     private String name;
 
     private String email;
+
+    private String characterName;
 
     private boolean isQuit = false;
 }

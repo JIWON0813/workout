@@ -1,0 +1,38 @@
+input RecordInput{
+    userId : String!
+    recordId : Int
+    isFinish : Boolean
+    startTime : DateTime
+    endTime : DateTime
+}
+
+type Record{
+    years : [Year]
+}
+
+type Year{
+    value : Int
+    months : [Month]
+}
+
+type Month{
+    value : Int
+    days : [Day]
+}
+
+type Day{
+    value : Int
+    timeStamps : [TimeStamp]
+}
+
+type TimeStamp{
+    id : Int
+    recordId : Int
+    isFinish : Boolean
+    startTime : DateTime
+    endTime : DateTime
+}
+
+type TimeStampResponse{
+    id : Int
+}

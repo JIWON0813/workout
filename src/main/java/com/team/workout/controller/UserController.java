@@ -2,9 +2,7 @@ package com.team.workout.controller;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.team.workout.domain.User;
-import com.team.workout.dto.RecordInput;
-import com.team.workout.dto.UserInput;
-import com.team.workout.repository.UserRepository;
+import com.team.workout.dto.request.UserInput;
 import com.team.workout.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,19 +27,14 @@ public class UserController implements GraphQLResolver {
     }
 
     @QueryMapping
-    public User getUser(@Argument(name="name") String name){
-        var result = userService.getUser(name);
+    public User getUser(@Argument(name="id") String id){
+        var result = userService.getUser(id);
         return result;
     }
 
     @MutationMapping
     public void createUser(@Argument(name = "user") UserInput user){
         userService.createUser(user);
-    }
-
-    @MutationMapping
-    public void createRecord(@Argument(name = "record") RecordInput record){
-        userService.createRecord(record);
     }
 
     @MutationMapping

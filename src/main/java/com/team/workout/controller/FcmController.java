@@ -2,7 +2,7 @@ package com.team.workout.controller;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.google.firebase.messaging.FirebaseMessagingException;
-import com.team.workout.dto.FcmMessageInput;
+import com.team.workout.dto.request.FcmMessageInput;
 import com.team.workout.service.FcmService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
