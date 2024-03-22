@@ -35,4 +35,6 @@ type TimeStamp{
 
 type TimeStampResponse{
     id : Int
+    record : Int
+    seed : Int
 }

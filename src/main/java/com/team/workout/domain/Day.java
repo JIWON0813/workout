@@ -24,26 +24,6 @@ public class Day {
         var timeStampList = timeStamps.get(this.value);
         var id = timeStampList.size();
 
-        timeStampList.add(new TimeStamp(id, record.getStartTime(), record.getEndTime()));
-
         return id;
-    }
-
-    public void updateTimeStamp(RecordInput record){
-        var timeStampList = timeStamps.get(this.value);
-        var id = record.getRecordId();
-
-        var timeStamp = timeStampList.get(id);
-
-        timeStamp.update(record);
-    }
-
-    public TimeStampResponse getTimeStamp(RecordInput record) {
-        var timeStampList = timeStamps.get(this.value);
-        var id = record.getRecordId();
-
-        var timeStamp = timeStampList.get(id);
-
-        return new TimeStampResponse(id, timeStamp.getRecord());
     }
 }

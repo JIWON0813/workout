@@ -29,8 +29,10 @@ public class User {
 
     private UserRecord userRecord;
 
+    private boolean marketingConsent;
+
     public void quit(){
-        isQuit = true;
+        this.isQuit = true;
     }
 
 }

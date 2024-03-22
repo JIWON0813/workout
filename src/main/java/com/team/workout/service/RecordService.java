@@ -1,10 +1,13 @@
 package com.team.workout.service;
 
+import com.team.workout.domain.Year;
 import com.team.workout.dto.request.RecordInput;
 import com.team.workout.dto.response.TimeStampResponse;
 import com.team.workout.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -12,8 +15,8 @@ public class RecordService {
 
     private final UserRepository userRepository;
 
-    public int addRecord(RecordInput record) {
-        var user = userRepository.findById(record.getUserId()).orElseThrow();
+    public void addRecord(RecordInput record) {
+        var user = userRepository.findById("1").orElseThrow(); // header
 
         var userRecord = user.getUserRecord();
 
@@ -21,24 +24,9 @@ public class RecordService {
 
         userRepository.save(user);
 
-        return id;
     }
 
-    public void updateRecord(RecordInput record){
-        var user = userRepository.findById(record.getUserId()).orElseThrow();
-
-        var userRecord = user.getUserRecord();
-
-        userRecord.updateRecord(record);
-
-        userRepository.save(user);
-    }
-
-    public TimeStampResponse getRecord(RecordInput record) {
-        var user = userRepository.findById(record.getUserId()).orElseThrow();
-
-        var userRecord = user.getUserRecord();
-
-        return userRecord.getRecord(record);
+    public Map<String, Year> records(RecordInput record) {
+        return null;
     }
 }

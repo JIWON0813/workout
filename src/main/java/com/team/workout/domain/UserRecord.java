@@ -22,15 +22,4 @@ public class UserRecord {
         return year.addTimeStamp(record);
     }
 
-    public void updateRecord(RecordInput record) {
-        var year = years.get(record.getRecordYear());
-
-        year.updateTimeStamp(record);
-    }
-
-    public TimeStampResponse getRecord(RecordInput record){
-        var year = years.get(record.getRecordYear());
-
-        return year.getTimeStamp(record);
-    }
 }

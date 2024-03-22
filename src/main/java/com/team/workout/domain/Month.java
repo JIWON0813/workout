@@ -30,15 +30,4 @@ public class Month {
         return day.addTimeStamp(record);
     }
 
-    public void updateTimeStamp(RecordInput record){
-        var day = days.get(record.getRecordDay());
-
-        day.updateTimeStamp(record);
-    }
-
-    public TimeStampResponse getTimeStamp(RecordInput record) {
-        var day = days.get(record.getRecordDay());
-
-        return day.getTimeStamp(record);
-    }
 }

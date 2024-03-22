@@ -2,9 +2,8 @@ scalar DateTime
 
 type Query{
     users : [User]
-    getUser(id : String) : User
-    getRecord(id : RecordInput) : TimeStampResponse
-    getSeedStandard : Int
+    user(id : String) : User
+    records : Boolean
 }
 
 type Mutation{
@@ -13,7 +12,5 @@ type Mutation{
 
     sendMessageToken(message : FcmMessageInput) : Boolean
 
-    addRecord(record : RecordInput) : Int
-    updateRecord(record : RecordInput) : Boolean
-    finishRecord(record : RecordInput) : Boolean
+    addRecord(record : RecordInput) : Boolean
 }

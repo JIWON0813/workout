@@ -26,7 +26,7 @@ public class UserService{
         return result;
     }
 
-    public void createUser(UserInput userInput){
+    public User createUser(UserInput userInput){
         var user = User.builder()
                         .id(userInput.getId())
                         .token(userInput.getToken())
@@ -36,7 +36,7 @@ public class UserService{
                         .userRecord(new UserRecord())
                         .build();
 
-         userRepository.save(user);
+         return userRepository.save(user);
     }
 
     public boolean quitUser( String id){
