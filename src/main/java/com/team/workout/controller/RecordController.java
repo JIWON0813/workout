@@ -30,7 +30,7 @@ public class RecordController implements GraphQLResolver {
     }
 
     @MutationMapping
-    public int addRecord(@Argument(name = "record") RecordInput record){
+    public void addRecord(@Argument(name = "record") RecordInput record){
         recordService.addRecord(record);
     }
 
