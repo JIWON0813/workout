@@ -14,9 +14,3 @@ type Record{
     endTime : DateTime
     value : Int
 }
-
-type TimeStampResponse{
-    id : Int
-    record : Int
-    seed : Int
-}

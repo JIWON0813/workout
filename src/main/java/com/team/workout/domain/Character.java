@@ -14,9 +14,7 @@ public class Character {
     private int level;
     private BigDecimal exp;
 
-    private static final BigDecimal STANDARD = new BigDecimal(10);
     private static final BigDecimal MINUTE = new BigDecimal(10);
-    private static final BigDecimal HUNDRED = new BigDecimal(100);
 
     public Character(String name){
         this.name = name;
@@ -26,15 +24,32 @@ public class Character {
 
     public void addExp(long record){
         var tempBigDecimal = new BigDecimal(record);
-        tempBigDecimal = tempBigDecimal.divide(STANDARD);
-        exp = exp.add(tempBigDecimal);
-        if(exp.doubleValue() >= 100){
-            exp = exp.divide(HUNDRED);
-            level++;
-        }
+        var standard = this.getStandardByLevel(this.level);
+        var result = standard.subtract(tempBigDecimal);
+
+        updateLevel(result);
     }
 
     public double getExp(){
-        return exp.doubleValue();
+        return exp.divide(this.getStandardByLevel(this.level)).doubleValue();
+    }
+
+    private void updateLevel(BigDecimal result) {
+        BigDecimal standard = new BigDecimal(0);
+
+        while(result.intValue() <= 0){
+            level++;
+            standard = this.getStandardByLevel(this.level);
+            result = result.add(standard);
+        }
+
+        this.exp = exp.add(standard).subtract(result);
+    }
+
+    public BigDecimal getStandardByLevel(int level){
+        if(level == 0){
+            return new BigDecimal(600);
+        }
+        return new BigDecimal(6000 * level);
     }
 }
