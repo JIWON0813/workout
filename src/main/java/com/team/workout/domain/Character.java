@@ -47,7 +47,7 @@ public class Character {
 
         if(exp.intValue() >= standard.intValue()){
             level++;
-            exp.subtract(standard);
+            this.exp = exp.subtract(standard);
         }
     }
 
