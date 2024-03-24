@@ -18,4 +18,6 @@ public class UserInput {
     private String characterName;
 
     private boolean isQuit = false;
+
+    private boolean isMarketing;
 }

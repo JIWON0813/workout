@@ -15,6 +15,7 @@ public class RecordInput {
     @NotNull(message = "종료 일자는 필수 입력 값 입니다")
     private LocalDateTime endTime;
 
+    @NotNull(message = "기록 값은 필수 입력 값 입니다.")
     private long record;
 
     private int recordYear;

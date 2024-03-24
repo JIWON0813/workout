@@ -9,5 +9,5 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class Mutation implements GraphQLMutationResolver {
     private UserRepository userRepository;
-
+    private RecordRepository recordRepository;
 }

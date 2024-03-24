@@ -1,18 +1,17 @@
 input UserInput {
     id : String!
     token : String
-    name : String
-    characterName : String
+    name : String!
+    characterName : String!
     email : String
+    isMarketing: Boolean
 }
 
 type User{
-    id : String!
     token : String
     name : String
     email : String
     character : Character
-    record : Record
 }
 
 type Character{

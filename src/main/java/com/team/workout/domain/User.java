@@ -27,9 +27,7 @@ public class User {
 
     private Character character;
 
-    private UserRecord userRecord;
-
-    private boolean marketingConsent;
+    private boolean isAgreeMarketing;
 
     public void quit(){
         this.isQuit = true;

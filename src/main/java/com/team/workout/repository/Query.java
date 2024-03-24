@@ -9,5 +9,5 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class Query implements GraphQLQueryResolver {
     private UserRepository userRepository;
-
+    private RecordRepository recordRepository;
 }

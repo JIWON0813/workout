@@ -35,8 +35,8 @@ public class UserController implements GraphQLResolver {
     }
 
     @MutationMapping
-    public User createUser(@Argument(name = "user") UserInput user){
-        return userService.createUser(user);
+    public void createUser(@Argument(name = "user") UserInput user){
+        userService.createUser(user);
     }
 
     @MutationMapping

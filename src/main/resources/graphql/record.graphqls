@@ -1,36 +1,18 @@
 input RecordInput{
-    userId : String!
     recordId : Int
-    isFinish : Boolean
-    startTime : DateTime
-    endTime : DateTime
+    startTime : DateTime!
+    endTime : DateTime!
+    record : Int!
 }
 
 type Record{
-    years : [Year]
-}
-
-type Year{
-    value : Int
-    months : [Month]
-}
-
-type Month{
-    value : Int
-    days : [Day]
-}
-
-type Day{
-    value : Int
-    timeStamps : [TimeStamp]
-}
-
-type TimeStamp{
     id : Int
-    recordId : Int
-    isFinish : Boolean
+    year : Int
+    month : Int
+    day : Int
     startTime : DateTime
     endTime : DateTime
+    value : Int
 }
 
 type TimeStampResponse{

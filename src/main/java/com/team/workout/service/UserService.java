@@ -2,7 +2,7 @@ package com.team.workout.service;
 
 import com.team.workout.domain.Character;
 import com.team.workout.domain.User;
-import com.team.workout.domain.UserRecord;
+import com.team.workout.domain.Record;
 import com.team.workout.dto.request.UserInput;
 import com.team.workout.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,26 +26,24 @@ public class UserService{
         return result;
     }
 
-    public User createUser(UserInput userInput){
+    public void createUser(UserInput userInput){
         var user = User.builder()
                         .id(userInput.getId())
                         .token(userInput.getToken())
                         .name(userInput.getName())
                         .email(userInput.getEmail())
                         .character(new Character(userInput.getCharacterName()))
-                        .userRecord(new UserRecord())
+                        .isAgreeMarketing(userInput.isMarketing())
                         .build();
 
-         return userRepository.save(user);
+        userRepository.save(user);
     }
 
-    public boolean quitUser( String id){
+    public void quitUser( String id){
         var user = userRepository.findById(id).orElseThrow();
 
         user.quit();
 
         userRepository.save(user);
-
-        return true;
     }
 }
