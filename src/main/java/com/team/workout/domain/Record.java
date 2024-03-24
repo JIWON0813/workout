@@ -1,15 +1,14 @@
 package com.team.workout.domain;
 
-import com.team.workout.dto.request.RecordInput;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 @Data
 @AllArgsConstructor
@@ -35,5 +34,13 @@ public class Record {
         this.startTime = startTime;
         this.endTime = endTime;
         this.value = value;
+    }
+
+    public OffsetDateTime getStartTime(){
+        return startTime.atOffset(ZoneOffset.UTC);
+    }
+
+    public OffsetDateTime getEndTime(){
+        return endTime.atOffset(ZoneOffset.UTC);
     }
 }

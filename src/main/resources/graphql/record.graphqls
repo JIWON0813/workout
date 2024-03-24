@@ -5,7 +5,7 @@ input RecordInput{
 }
 
 type Record{
-    id : Int
+    id : String
     year : Int
     month : Int
     day : Int

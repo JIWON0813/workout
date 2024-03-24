@@ -22,7 +22,8 @@ public class RecordController implements GraphQLResolver {
 
     @QueryMapping
     public List<Record> records(){
-        return recordService.records();
+        var result = recordService.records();
+        return result;
     }
 
 //    @QueryMapping

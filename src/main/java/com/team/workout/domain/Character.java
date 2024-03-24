@@ -31,11 +31,11 @@ public class Character {
     }
 
     public double getExp(){
-        return exp.divide(this.getStandardByLevel(this.level)).doubleValue();
+        return this.exp.divide(this.getStandardByLevel(this.level)).doubleValue();
     }
 
     private void updateLevel(BigDecimal result) {
-        BigDecimal standard = new BigDecimal(0);
+        BigDecimal standard = this.getStandardByLevel(this.level);
 
         while(result.intValue() <= 0){
             level++;
