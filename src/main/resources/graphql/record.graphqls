@@ -1,5 +1,4 @@
 input RecordInput{
-    recordId : Int
     startTime : DateTime!
     endTime : DateTime!
     record : Int!

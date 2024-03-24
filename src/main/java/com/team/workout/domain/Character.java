@@ -23,9 +23,9 @@ public class Character {
     }
 
     public void addExp(long record){
-        var tempBigDecimal = new BigDecimal(record);
+        var recordBigDecimal = new BigDecimal(record);
         var standard = this.getStandardByLevel(this.level);
-        var result = standard.subtract(tempBigDecimal);
+        var result = standard.subtract(recordBigDecimal);
 
         updateLevel(result);
     }
@@ -55,6 +55,7 @@ public class Character {
         if(level == 0){
             return new BigDecimal(600);
         }
+
         return new BigDecimal(6000 * level);
     }
 }

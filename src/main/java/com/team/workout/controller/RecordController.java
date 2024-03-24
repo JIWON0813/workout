@@ -25,10 +25,10 @@ public class RecordController implements GraphQLResolver {
         return recordService.records();
     }
 
-    @QueryMapping
-    public List<Record> record(){
-        return recordService.records();
-    }
+//    @QueryMapping
+//    public List<Record> record(){
+//        return recordService.records();
+//    }
 
     @MutationMapping
     public String addRecord(@Argument(name = "record") RecordInput record){
