@@ -44,6 +44,11 @@ public class Character {
         }
 
         this.exp = exp.add(standard).subtract(result);
+
+        if(exp.intValue() >= standard.intValue()){
+            level++;
+            exp.subtract(standard);
+        }
     }
 
     public BigDecimal getStandardByLevel(int level){
