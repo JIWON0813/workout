@@ -1,5 +1,6 @@
 package com.team.workout.service;
 
+import com.team.workout.config.HeaderConfig;
 import com.team.workout.domain.Character;
 import com.team.workout.domain.User;
 import com.team.workout.domain.Record;
@@ -15,15 +16,14 @@ import java.util.List;
 public class UserService{
 
     private final UserRepository userRepository;
+    private final HeaderConfig headerConfig;
 
     public List<User> users(){
-        var result = userRepository.findAll();
-        return result;
+        return userRepository.findAll();
     }
 
-    public User getUser(String id){
-        var result = userRepository.findById(id).orElse(null);
-        return result;
+    public User getUser(){
+        return userRepository.findById(headerConfig.getId()).orElse(null);
     }
 
     public void createUser(UserInput userInput){

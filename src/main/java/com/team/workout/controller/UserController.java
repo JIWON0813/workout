@@ -24,14 +24,12 @@ public class UserController implements GraphQLResolver {
 
     @QueryMapping
     public List<User> users(){
-        var result = userService.users();
-        return result;
+        return userService.users();
     }
 
     @QueryMapping
-    public User user(@RequestHeader Map<String, String> headers, @Argument(name="id") String id){
-        var result = userService.getUser(id);
-        return result;
+    public User user(){
+        return userService.getUser();
     }
 
     @MutationMapping
