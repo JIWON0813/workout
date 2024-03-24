@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Getter
 @AllArgsConstructor
@@ -31,7 +32,8 @@ public class Character {
     }
 
     public double getExp(){
-        return this.exp.divide(this.getStandardByLevel(this.level)).doubleValue();
+        var standard = this.getStandardByLevel(this.level);
+        return this.exp.divide(standard, 3, RoundingMode.HALF_UP).doubleValue();
     }
 
     private void updateLevel(BigDecimal result) {
