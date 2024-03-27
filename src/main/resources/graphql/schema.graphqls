@@ -1,16 +1,19 @@
 scalar DateTime
+scalar Date
 
 type Query{
     users : [User]
-    user(id : String) : User
+    user : User
     records : [Record]
+    recordsByDay(date : Date) : [Record]
+    seeds : Int
 }
 
 type Mutation{
     createUser(user : UserInput) : Boolean
-    quitUser(id : String) : Boolean
+    quitUser : Boolean
 
     sendMessageToken(message : FcmMessageInput) : Boolean
 
-    addRecord(record : RecordInput) : String
+    addRecord(record : RecordInput) : RecordResponse
 }

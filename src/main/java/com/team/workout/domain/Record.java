@@ -1,5 +1,6 @@
 package com.team.workout.domain;
 
+import com.team.workout.dto.response.RecordResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
+
+import static com.team.workout.constants.RecordConstant.MAX_SEED_STANDARD;
 
 @Data
 @AllArgsConstructor

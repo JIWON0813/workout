@@ -1,5 +1,6 @@
 package com.team.workout.domain;
 
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,11 +12,11 @@ import java.math.RoundingMode;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Character {
+
+    @Size(max = 9, message = "8자를 초과할 수 없습니다.")
     private String name;
     private int level;
     private BigDecimal exp;
-
-    private static final BigDecimal MINUTE = new BigDecimal(10);
 
     public Character(String name){
         this.name = name;

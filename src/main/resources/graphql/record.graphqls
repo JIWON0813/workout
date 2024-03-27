@@ -4,6 +4,11 @@ input RecordInput{
     record : Int!
 }
 
+type RecordResponse{
+    id : String
+    isMax : Boolean
+}
+
 type Record{
     id : String
     year : Int
@@ -13,3 +18,6 @@ type Record{
     endTime : DateTime
     value : Int
 }
+
+
+

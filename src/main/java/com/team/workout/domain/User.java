@@ -1,5 +1,6 @@
 package com.team.workout.domain;
 
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class User {
 
     private String token;
 
+    @Size(max = 9, message = "8자를 초과할 수 없습니다.")
     private String name;
 
     private String email;

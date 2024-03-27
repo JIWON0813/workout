@@ -10,7 +10,8 @@ import org.springframework.graphql.execution.RuntimeWiringConfigurer;
 public class GraphQlConfig {
     @Bean
     public RuntimeWiringConfigurer runtimeWiringConfigurer() {
-        return wiringBuilder -> wiringBuilder.scalar(ExtendedScalars.DateTime);
+        return wiringBuilder -> wiringBuilder.scalar(ExtendedScalars.DateTime)
+                                            .scalar(ExtendedScalars.Date);
     }
 
 }
