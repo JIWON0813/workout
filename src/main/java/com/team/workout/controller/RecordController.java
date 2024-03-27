@@ -29,8 +29,8 @@ public class RecordController implements GraphQLResolver {
     }
 
     @QueryMapping
-    public long seeds(){
-        var result = recordService.seeds();
+    public long seeds(@Argument(name = "date") LocalDate localDate){
+        var result = recordService.seeds(localDate);
         return result;
     }
 

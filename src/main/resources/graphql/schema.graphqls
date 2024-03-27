@@ -6,7 +6,7 @@ type Query{
     user : User
     records : [Record]
     recordsByDay(date : Date) : [Record]
-    seeds : Int
+    seeds(date : Date) : Int
 }
 
 type Mutation{
