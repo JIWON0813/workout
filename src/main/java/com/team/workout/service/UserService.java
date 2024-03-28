@@ -39,8 +39,8 @@ public class UserService{
         userRepository.save(user);
     }
 
-    public void quitUser( String id){
-        var user = userRepository.findById(id).orElseThrow();
+    public void quitUser(){
+        var user = userRepository.findById(headerConfig.getId()).orElseThrow();
 
         user.quit();
 

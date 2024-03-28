@@ -13,4 +13,7 @@ import java.util.List;
 public interface RecordRepository extends MongoRepository<Record, String> {
     List<Record> findAllByUserId(String userId);
     List<Record> findAllByStartTimeBetweenAndUserId(LocalDateTime startTime, LocalDateTime endTime, String userId);
+
+    //admin
+    List<Record> deleteAllByStartTimeBetweenAndUserId(LocalDateTime atStartOfDay, LocalDateTime minusSeconds, String id);
 }

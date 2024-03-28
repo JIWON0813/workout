@@ -32,6 +32,10 @@ public class RecordService {
         return recordRepository.findAllByStartTimeBetweenAndUserId(localDate.atStartOfDay(), localDate.atStartOfDay().plusDays(1).minusSeconds(1), headerConfig.getId());
     }
 
+    public void deleteRecordsByDay(LocalDate localDate){
+        recordRepository.deleteAllByStartTimeBetweenAndUserId(localDate.atStartOfDay(), localDate.atStartOfDay().plusDays(1).minusSeconds(1), headerConfig.getId());
+    }
+
     public long seeds(LocalDate localDate){
         long sum = sumRecordByDay(localDate);
 

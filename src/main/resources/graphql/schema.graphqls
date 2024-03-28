@@ -16,4 +16,5 @@ type Mutation{
     sendMessageToken(message : FcmMessageInput) : Boolean
 
     addRecord(record : RecordInput) : RecordResponse
+    deleteRecordsByDay(date : Date) : Boolean
 }

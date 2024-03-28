@@ -38,7 +38,7 @@ public class UserController implements GraphQLResolver {
     }
 
     @MutationMapping
-    public void quitUser(@Argument(name = "id") String id){
-        userService.quitUser(id);
+    public void quitUser(){
+        userService.quitUser();
     }
 }

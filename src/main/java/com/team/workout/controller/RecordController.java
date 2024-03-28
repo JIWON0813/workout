@@ -34,6 +34,11 @@ public class RecordController implements GraphQLResolver {
         return result;
     }
 
+    @MutationMapping
+    public void deleteRecordsByDay(@Argument(name = "date") LocalDate localDate){
+        recordService.deleteRecordsByDay(localDate);
+    }
+
     @QueryMapping
     public List<Record> recordsByDay(@Argument(name = "date") LocalDate localDate){
         return recordService.recordsByDay(localDate);
