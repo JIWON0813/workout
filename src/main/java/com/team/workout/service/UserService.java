@@ -9,6 +9,7 @@ import com.team.workout.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -22,11 +23,11 @@ public class UserService{
         return userRepository.findAll();
     }
 
-    public User getUser(){
+    public User user(){
         return userRepository.findById(headerConfig.getId()).orElse(null);
     }
 
-    public void createUser(UserInput userInput){
+    public void create(UserInput userInput){
         var user = User.builder()
                         .id(userInput.getId())
                         .token(userInput.getToken())
@@ -34,16 +35,21 @@ public class UserService{
                         .email(userInput.getEmail())
                         .character(new Character(userInput.getCharacterName()))
                         .isAgreeMarketing(userInput.isMarketing())
+                        .createdDate(LocalDateTime.now())
                         .build();
 
         userRepository.save(user);
     }
 
-    public void quitUser(){
+    public void quit(){
         var user = userRepository.findById(headerConfig.getId()).orElseThrow();
 
         user.quit();
 
         userRepository.save(user);
+    }
+
+    public void delete(){
+        userRepository.deleteById(headerConfig.getId());
     }
 }

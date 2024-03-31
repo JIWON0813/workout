@@ -29,16 +29,21 @@ public class UserController implements GraphQLResolver {
 
     @QueryMapping
     public User user(){
-        return userService.getUser();
+        return userService.user();
     }
 
     @MutationMapping
     public void createUser(@Argument(name = "user") UserInput user){
-        userService.createUser(user);
+        userService.create(user);
     }
 
     @MutationMapping
     public void quitUser(){
-        userService.quitUser();
+        userService.quit();
+    }
+
+    @MutationMapping
+    public void deleteUser(){
+        userService.delete();
     }
 }

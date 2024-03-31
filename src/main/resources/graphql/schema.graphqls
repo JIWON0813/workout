@@ -12,6 +12,7 @@ type Query{
 type Mutation{
     createUser(user : UserInput) : Boolean
     quitUser : Boolean
+    deleteUser : Boolean
 
     sendMessageToken(message : FcmMessageInput) : Boolean
 

@@ -38,20 +38,11 @@ user , record collection으로 가져가기
 record는 저번처럼 뎁스를 늘리지않고 그냥 record별로 쌓도록 진행  
 이후 비즈니스 로직에서 record 업데이트 후 user 쪽 업데이트 하는 방식이 있는데 이 부분 트랜잭션이 안걸려 좀 고민해봐야함.
 
-# 기능 정리
-### 팀
-- 소스
-    - [controller](src/main/java/com/warmingup/mini/controller/TeamController.java)
-    - [service](src/main/java/com/warmingup/mini/service/TeamService.java)
-    - [domain](src/main/java/com/warmingup/mini/domain/Team.java)
-
-### 직원
-- 소스
-    - [controller](src/main/java/com/warmingup/mini/controller/WorkerController.java)
-    - [service](src/main/java/com/warmingup/mini/service/WorkerService.java)
-    - [domain](src/main/java/com/warmingup/mini/domain/Worker.java)
-
-
+하 데이터모델링이 어렵구나...
+맨 처음에 List로 했는데 Map이 나아보여 Map으로 변경
+nosql을 처음 써보다 보니 뭔가 복잡하게 됐다
+rdb면 그냥 조인해서 끝내면 될거같은데
+앞으로는 좀 더 정교하게 짤 수 있도록 해야겠다
 
 ## 생각 정리. 이력
 ### 03.21  
@@ -59,8 +50,4 @@ record는 저번처럼 뎁스를 늘리지않고 그냥 record별로 쌓도록 �
 테스트코드가 익숙하지 않지만 확실히 필요성을 느끼게 됌
 ![img.png](image/img.png)
 
-하 데이터모델링이 어렵구나...
-맨 처음에 List로 했는데 Map이 나아보여 Map으로 변경
-nosql을 처음 써보다 보니 뭔가 복잡하게 됐다
-rdb면 그냥 조인해서 끝내면 될거같은데
-앞으로는 좀 더 정교하게 짤 수 있도록 해야겠다
+
