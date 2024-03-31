@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
-import static com.team.workout.constants.RecordConstant.MAX_SEED_STANDARD;
+import static com.team.workout.constants.RecordConstant.*;
 
 @Data
 @AllArgsConstructor
@@ -28,6 +28,7 @@ public class Record {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private long value;
+    private long seeds;
 
     public Record(String userId, LocalDateTime startTime, LocalDateTime endTime, long value){
         this.year = startTime.getYear();
@@ -37,6 +38,7 @@ public class Record {
         this.startTime = startTime;
         this.endTime = endTime;
         this.value = value;
+        this.seeds = value / SEED_STANDARD_TIME;
     }
 
     public OffsetDateTime getStartTime(){

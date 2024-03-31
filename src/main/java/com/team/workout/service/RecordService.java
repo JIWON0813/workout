@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static com.team.workout.constants.RecordConstant.MAX_SEED_STANDARD;
-import static com.team.workout.constants.RecordConstant.SEED_STANDARD;
+import static com.team.workout.constants.RecordConstant.SEED_STANDARD_TIME;
 
 @Service
 @RequiredArgsConstructor
@@ -37,9 +37,7 @@ public class RecordService {
     }
 
     public long seeds(LocalDate localDate){
-        long sum = sumRecordByDay(localDate);
-
-        var seeds = sum / SEED_STANDARD;
+        long seeds = sumSeedsByDay(localDate);
 
         return seeds > 12 ? 12 : seeds;
     }
@@ -54,38 +52,26 @@ public class RecordService {
     }
 
     private boolean checkMax(RecordInput recordInput) {
-        var sum = sumRecordByDay(LocalDate.from(recordInput.getStartTime()));
+        var sum = sumSeedsByDay(LocalDate.from(recordInput.getStartTime()));
 
         if(sum >= MAX_SEED_STANDARD){
             return true;
         }
 
-        if(sum + recordInput.getRecord() >= MAX_SEED_STANDARD){
+        var newSeeds = recordInput.getRecord() / SEED_STANDARD_TIME;
+
+        if(sum + newSeeds>= MAX_SEED_STANDARD){
             addCharacterExp(MAX_SEED_STANDARD - sum);
             return true;
         }
 
-        addCharacterExp(recordInput.getRecord());
+        addCharacterExp(newSeeds);
         return false;
     }
 
-    private long sumRecordByDay(LocalDate localDate) {
+    private long sumSeedsByDay(LocalDate localDate) {
         var recordsByDay = this.recordsByDay(localDate);
-        return recordsByDay.stream().mapToLong(i -> i.getValue()).sum();
-    }
-
-    private boolean checkMaxSeedByDay(RecordInput recordInput) {
-        var sum = sumRecordByDay(LocalDate.from(recordInput.getStartTime()));
-
-        sum += recordInput.getRecord();
-        var quotient = Math.floorDiv(sum,MAX_SEED_STANDARD);
-        var remainder = Math.floorMod(sum,MAX_SEED_STANDARD);
-
-        if(quotient >= 1 && remainder > 0){
-            return true;
-        }
-
-        return false;
+        return recordsByDay.stream().mapToLong(i -> i.getSeeds()).sum();
     }
 
     private void addCharacterExp(long record) {
