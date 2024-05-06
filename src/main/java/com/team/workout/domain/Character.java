@@ -35,7 +35,7 @@ public class Character {
 
     public double getExp(){
         var standard = this.getStandardByLevel(this.level);
-        return new BigDecimal(this.exp).divide(BigDecimal.valueOf(standard), 3, RoundingMode.HALF_UP).doubleValue();
+        return percent(this.exp,standard);
     }
 
     private void updateLevel(long result) {
@@ -63,7 +63,7 @@ public class Character {
             standard = this.getStandardByLevel(this.level-1);
         }
 
-        return new BigDecimal(seeds).divide(BigDecimal.valueOf(standard), 3, RoundingMode.HALF_UP).doubleValue();
+        return percent(seeds,standard);
     }
 
     public long getStandardByLevel(int level){
@@ -72,5 +72,9 @@ public class Character {
         }
 
         return 10 * level; // 변경
+    }
+
+    private double percent(long dividend, long divisor){
+        return new BigDecimal(dividend).divide(BigDecimal.valueOf(divisor), 3, RoundingMode.HALF_UP).doubleValue() * 100;
     }
 }

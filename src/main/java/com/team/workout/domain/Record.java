@@ -42,10 +42,10 @@ public class Record {
     }
 
     public OffsetDateTime getStartTime(){
-        return startTime.atOffset(ZoneOffset.UTC);
+        return startTime.minusHours(9).atOffset(ZoneOffset.UTC);
     }
 
     public OffsetDateTime getEndTime(){
-        return endTime.atOffset(ZoneOffset.UTC);
+        return endTime.minusHours(9).atOffset(ZoneOffset.UTC);
     }
 }
