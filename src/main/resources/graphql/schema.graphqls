@@ -4,8 +4,10 @@ scalar Date
 type Query{
     users : [User]
     user : User
+    growthRateByDay : Float
     records : [Record]
     recordsByDay(date : Date) : [Record]
+    recordsBetweenDate(fromDate : Date, toDate : Date) : [Record]
     seeds(date : Date) : Int
 }
 

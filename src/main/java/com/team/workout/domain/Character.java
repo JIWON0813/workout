@@ -55,6 +55,17 @@ public class Character {
         }
     }
 
+    public double growthRateByDay(long seeds){
+        var standard = this.getStandardByLevel(this.level);
+        long beforeSeedExp = this.exp - seeds;
+
+        if(beforeSeedExp < 0){
+            standard = this.getStandardByLevel(this.level-1);
+        }
+
+        return new BigDecimal(seeds).divide(BigDecimal.valueOf(standard), 3, RoundingMode.HALF_UP).doubleValue();
+    }
+
     public long getStandardByLevel(int level){
         if(level == 0){
             return 1;

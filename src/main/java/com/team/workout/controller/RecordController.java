@@ -44,6 +44,17 @@ public class RecordController implements GraphQLResolver {
         return recordService.recordsByDay(localDate);
     }
 
+    @QueryMapping
+    public List<Record> recordsBetweenDate(@Argument(name = "fromDate") LocalDate fromDate, @Argument(name = "toDate") LocalDate toDate) {
+        return recordService.recordsBetweenDate(fromDate, toDate);
+    }
+
+    @QueryMapping
+    public double growthRateByDay() {
+        return recordService.growthRateByDay();
+    }
+
+
     @MutationMapping
     public RecordResponse addRecord(@Argument(name = "record") RecordInput record){
         return recordService.addRecord(record);

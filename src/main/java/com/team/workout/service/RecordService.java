@@ -7,6 +7,7 @@ import com.team.workout.dto.response.RecordResponse;
 import com.team.workout.repository.RecordRepository;
 import com.team.workout.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -32,6 +33,10 @@ public class RecordService {
         return recordRepository.findAllByStartTimeBetweenAndUserId(localDate.atStartOfDay(), localDate.atStartOfDay().plusDays(1).minusSeconds(1), headerConfig.getId());
     }
 
+    public List<Record> recordsBetweenDate(LocalDate fromDate, LocalDate toDate){
+        return recordRepository.findAllByStartTimeBetweenAndUserId(fromDate.atStartOfDay(), toDate.atStartOfDay().plusDays(1).minusSeconds(1), headerConfig.getId());
+    }
+
     public void deleteRecordsByDay(LocalDate localDate){
         recordRepository.deleteAllByStartTimeBetweenAndUserId(localDate.atStartOfDay(), localDate.atStartOfDay().plusDays(1).minusSeconds(1), headerConfig.getId());
     }
@@ -40,6 +45,14 @@ public class RecordService {
         long seeds = sumSeedsByDay(localDate);
 
         return seeds > 12 ? 12 : seeds;
+    }
+
+    public double growthRateByDay(){
+        var user = userRepository.findById(headerConfig.getId()).orElseThrow();
+
+        var character = user.getCharacter();
+
+        return character.growthRateByDay(this.seeds(LocalDate.now()));
     }
 
     //TODO 리팩터링 필요

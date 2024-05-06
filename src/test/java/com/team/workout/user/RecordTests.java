@@ -33,6 +33,18 @@ public class RecordTests {
 
     }
 
+    @Test
+    @DisplayName("성장률 테스트")
+    void 성장률테스트(){
+        Character character = new Character("hello");
+        character.addExp(1);
+        character.addExp(12);
+
+        var exp = character.growthRateByDay(10);
+
+
+    }
+
 
     @Test
     @DisplayName("JAVA 기능 테스트용")
