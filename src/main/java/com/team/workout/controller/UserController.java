@@ -46,4 +46,9 @@ public class UserController implements GraphQLResolver {
     public void deleteUser(){
         userService.delete();
     }
+
+    @QueryMapping
+    public String test(){
+        return "hi";
+    }
 }

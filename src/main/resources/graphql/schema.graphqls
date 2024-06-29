@@ -9,6 +9,7 @@ type Query{
     recordsByDay(date : Date) : [Record]
     recordsBetweenDate(fromDate : Date, toDate : Date) : [Record]
     seeds(date : Date) : Int
+    test : String
 }
 
 type Mutation{
